@@ -1,11 +1,12 @@
-services:
-  - type: web
-    name: leo-digital-twin-backend
-    runtime: python3
-    buildCommand: |
-      python -m pip install --upgrade pip
-      pip install -r requirements.txt
-    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
-    envVars:
-      - key: PYTHON_VERSION
-        value: "3.12.6"
+type: web
+name: leo-digital-twin-backend
+runtime: python3
+buildCommand: |
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+pythonVersion: "3.12"
+envVars:
+
+key: PYTHON_VERSION
+value: "3.12.6"
