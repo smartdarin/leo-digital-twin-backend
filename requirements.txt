@@ -8,6 +8,7 @@ python-dotenv==1.0.1  # for local dev only
 # Lightweight math / data (common for preprocessing)
 numpy==1.26.4
 pandas==2.2.2
+Pillow==10.4
 
 # HTTP robustness (timeouts/retries)
 urllib3==2.2.2
