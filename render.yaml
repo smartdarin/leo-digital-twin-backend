@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: leo-digital-twin-backend
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
