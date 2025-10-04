@@ -1,20 +1,11 @@
 services:
   - type: web
     name: leo-digital-twin-backend
-    env: python
-    pythonVersion: 3.12
-    branch: main
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
-    plan: free
+    runtime: python3
+    buildCommand: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
     envVars:
-      - key: FIRMS_KEY
-        fromSecret: FIRMS_KEY
-      - key: CDSE_CLIENT_ID
-        fromSecret: CDSE_CLIENT_ID
-      - key: CDSE_CLIENT_SECRET
-        fromSecret: CDSE_CLIENT_SECRET
-      - key: FIRMS_SOURCE
-        value: VIIRS_NOAA20_NRT
-      - key: NWS_USER_AGENT
-        value: "LEO-DigitalTwin/1.0 (jajdarin@gmail.com)"
+      - key: PYTHON_VERSION
+        value: "3.12.6"
