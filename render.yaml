@@ -6,6 +6,7 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
     plan: free
+    pythonVersion: 3.12.16  # <--- add this line
     envVars:
       # Secrets from Render Dashboard
       - key: FIRMS_KEY
